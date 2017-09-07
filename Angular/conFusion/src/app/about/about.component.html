@@ -1,0 +1,78 @@
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+  <div fxFlex>
+    <div>
+      <h3>About Us</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div fxFlex>
+    <div fxLayout="column" fxLayout.gt-sm="row">
+      <div fxFlex="70">
+        <h2>Our History</h2>
+        <p>Started in 2010, Ristorante con Fusion quickly established itself as a culinary icon par excellence in Hong Kong.
+          With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list
+          clientele in Hong Kong. Featuring four of the best three-star Michelin chefs in the world, you never know what
+          will arrive on your plate the next time you visit us.</p>
+        <p>The restaurant traces its humble beginnings to <em>The Frying Pan</em>, a successful chain started by our CEO, Mr.
+          Peter Pan, that featured for the first time the world's best cuisines in a pan.</p>
+      </div>
+      <div fxFlex="30">
+        <md-card>
+          <md-card-header>
+            <md-card-title>
+              <h2>Facts At a Glance</h2>
+            </md-card-title>
+          </md-card-header>
+          <md-card-content>
+            <dl>
+              <dt>Started</dt>
+              <dd>3 Feb. 2013</dd>
+              <dt>Major Stake Holder</dt>
+              <dd>HK Fine Foods Inc.</dd>
+              <dt>Last Year's Turnover</dt>
+              <dd>$1,250,375</dd>
+              <dt>Employees</dt>
+              <dd>40</dd>
+            </dl>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </div>
+
+  <div fxFlex>
+    <md-card>
+      <blockquote>
+        <h3>You better cut the pizza in four pieces because I'm not hungry enough to eat six.</h3>
+        <footer>-- Yogi Berra,
+          <cite>The Wit and Wisdom of Yogi Berra,
+                            P. Pepe, Diversion Books, 2014</cite>
+        </footer>
+      </blockquote>
+    </md-card>
+  </div>
+
+
+  <div fxFlex>
+    <h2>Corporate Leadership</h2>
+    <md-list *ngIf="leaders" [@expand]>
+      <md-list-item class="md-3-line" *ngFor="let leader of leaders">
+        <img md-list-avatar src="{{BaseURL + leader.image}}">
+        <h3 md-line>{{leader.name}}, {{leader.abbr}}</h3>
+        <h4 md-line>{{leader.designation}}</h4>
+        <p md-line>{{leader.description}}</p>
+      </md-list-item>
+    </md-list>
+    <div [hidden]="leaders || leadersErrMess">
+      <md-spinner></md-spinner>
+      <h4>Loading . . . please wait</h4>
+    </div>
+    <div *ngIf="leadersErrMess">
+      <h1 style="color: #484848"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" enable-background="new 0 0 64 64" width="64"><circle cx="31.9" cy="32.1" r="29.9" fill="#ffdd67"/><g fill="#664e27"><circle cx="43.7" cy="30" r="5"/><circle cx="20.2" cy="30" r="5"/></g><path d="m32 2c-6 0-11.7 1.8-16.4 4.9 17.7 9.1 33.2 23 41.7 41.2 3-4.6 4.7-10.2 4.7-16.1 0-16.6-13.4-30-30-30" fill="#cccfd4"/><path d="m32.9 3.6c-5.5 0-10.6 1.6-14.9 4.4 16.7 7.7 31.6 19.3 39.4 35.8 3.1-5.8 2.9-12.9 2.9-12.9-.1-15.1-12.3-27.3-27.4-27.3" fill="#fff"/><path d="m15.8 6.7c14.5-.1 28.9 3.3 41.9 9.8 2.7 4.5 4.3 9.8 4.3 15.5 0 .5 0 .9 0 1.4-17.2-10.6-37.4-15.3-57.5-13.4 2.4-5.5 6.4-10.1 11.3-13.3" fill="#cccfd4"/><path d="m17 8.1c13.6-.1 27.6 4 39.8 9.6 3.3 6.5 3.5 11.9 3.5 11.9-16.5-8.7-35.4-13.1-52.9-11.4 0 0 4.2-7.8 9.6-10.1" fill="#fff"/><path d="m40.3 42.8c-5.8-1.5-12-.4-16.9 3-1.2.9 1.1 4 2.3 3.2 3.2-2.3 8.4-3.8 13.7-2.4 1.3.3 2.4-3.3.9-3.8" fill="#664e27"/></svg> Oops!</h1>
+      <h3 style="color: #484848">We can't seem to load this item.</h3>
+      <h4 style="color: #767676">{{leadersErrMess}}</h4>
+    </div>
+  </div>
+</div>
