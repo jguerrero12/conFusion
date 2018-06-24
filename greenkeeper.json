@@ -1,0 +1,10 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "Angular/conFusion/package.json",
+        "Bootstrap4/conFusion/package.json"
+      ]
+    }
+  }
+}
